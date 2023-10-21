@@ -9,113 +9,25 @@ const eight = document.getElementById('8');
 const nine = document.getElementById('9');
 const x = document.getElementById('x');
 const o = document.getElementById('o');
-
 const reset = document.getElementById('10');
-
 let counter = 1;
-
 const array = [
     one, two, three, four, five, six, seven, eight, nine
 ];
 
-one.addEventListener('click', () => {
-    if (one.classList.contains('x') || one.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-           pressButton(one);   
-        }
-    }
-});
-
-two.addEventListener('click', () => {
-    if (two.classList.contains('x') || two.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(two);   
-         }  
-    }
-});
-
-three.addEventListener('click', () => {
-    if (three.classList.contains('x') || three.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(three);   
-         }  
-    }
-});
-
-four.addEventListener('click', () => {
-    if (four.classList.contains('x') || four.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(four);   
-         }    
-    }
-});
-
-five.addEventListener('click', () => {
-    if (five.classList.contains('x') || five.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(five);   
-         }    
-    }
-});
-
-six.addEventListener('click', () => {
-    if (six.classList.contains('x') || six.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(six);   
-         }    
-    }
-});
-
-seven.addEventListener('click', () => {
-    if (seven.classList.contains('x') || seven.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(seven);   
-         }    
-    }
-});
-eight.addEventListener('click', () => {
-    if (eight.classList.contains('x') || eight.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(eight);   
-         }    
-    }
-});
-
-nine.addEventListener('click', () => {
-    if (nine.classList.contains('x') || nine.classList.contains('circle')){
-
-    } else {
-        if (x.classList.contains('none') &&  o.classList.contains('none')){
-            pressButton(nine);   
-         }    
-    }
-});
+array.forEach((el) => {
+    el.addEventListener('click', () => {
+        checkingForClasses(el);
+    })
+})
 
 reset.addEventListener('click', () => {
-    Reset();
+    resetGame();
 })
 
 
 
-
 // function
-
 
 function pressButton(el) {
     
@@ -134,10 +46,10 @@ function pressButton(el) {
         }
         counter = counter - 1
     }
-    Win();
+    win();
 };
 
-function Reset () {
+function resetGame () {
     array.forEach((el) => 
     el.classList.remove('x'))
     array.forEach((el) => 
@@ -147,7 +59,16 @@ function Reset () {
     o.classList.add('none');
 }
 
-function Win () {
+function checkingForClasses (el){
+    if (el.classList.contains('x') || el.classList.contains('circle')){
+    } else {
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(el);   
+         }    
+    }
+}
+
+function win () {
     if (nine.classList.contains('x') && eight.classList.contains('x') && seven.classList.contains('x') ||
         six.classList.contains('x') && five.classList.contains('x') && four.classList.contains('x') ||
         three.classList.contains('x') && two.classList.contains('x') && one.classList.contains('x') ||
@@ -174,6 +95,5 @@ function Win () {
         if (o.classList.contains('none') && x.classList.contains('none')){
             return o.classList.remove('none');
         } 
-
     }
 }
