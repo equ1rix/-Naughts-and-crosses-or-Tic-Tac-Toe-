@@ -22,7 +22,9 @@ one.addEventListener('click', () => {
     if (one.classList.contains('x') || one.classList.contains('circle')){
 
     } else {
-        pressButton(one);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+           pressButton(one);   
+        }
     }
 });
 
@@ -30,7 +32,9 @@ two.addEventListener('click', () => {
     if (two.classList.contains('x') || two.classList.contains('circle')){
 
     } else {
-        pressButton(two);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(two);   
+         }  
     }
 });
 
@@ -38,7 +42,9 @@ three.addEventListener('click', () => {
     if (three.classList.contains('x') || three.classList.contains('circle')){
 
     } else {
-        pressButton(three);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(three);   
+         }  
     }
 });
 
@@ -46,7 +52,9 @@ four.addEventListener('click', () => {
     if (four.classList.contains('x') || four.classList.contains('circle')){
 
     } else {
-        pressButton(four);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(four);   
+         }    
     }
 });
 
@@ -54,7 +62,9 @@ five.addEventListener('click', () => {
     if (five.classList.contains('x') || five.classList.contains('circle')){
 
     } else {
-        pressButton(five);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(five);   
+         }    
     }
 });
 
@@ -62,7 +72,9 @@ six.addEventListener('click', () => {
     if (six.classList.contains('x') || six.classList.contains('circle')){
 
     } else {
-        pressButton(six);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(six);   
+         }    
     }
 });
 
@@ -70,14 +82,18 @@ seven.addEventListener('click', () => {
     if (seven.classList.contains('x') || seven.classList.contains('circle')){
 
     } else {
-        pressButton(seven);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(seven);   
+         }    
     }
 });
 eight.addEventListener('click', () => {
     if (eight.classList.contains('x') || eight.classList.contains('circle')){
 
     } else {
-        pressButton(eight);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(eight);   
+         }    
     }
 });
 
@@ -85,7 +101,9 @@ nine.addEventListener('click', () => {
     if (nine.classList.contains('x') || nine.classList.contains('circle')){
 
     } else {
-        pressButton(nine);   
+        if (x.classList.contains('none') &&  o.classList.contains('none')){
+            pressButton(nine);   
+         }    
     }
 });
 
