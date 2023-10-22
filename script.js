@@ -33,19 +33,15 @@ reset.addEventListener('click', () => {
 
 function pressButton(el) {
     if (counter === 1) {
-        if (el.classList.contains('circle') || el.classList.contains('x')) {
-
-        } else {
-            el.classList.add('circle')
+        if (!el.classList.contains('o') && !el.classList.contains('x')) {
+            el.classList.add('o')
+            counter = counter += 1
         }
-        counter = counter += 1
     } else {
-        if (el.classList.contains('circle') || el.classList.contains('x')) {
-
-        } else {
+        if (!el.classList.contains('o') && !el.classList.contains('x')) {
             el.classList.add('x')
-        }
-        counter = counter - 1
+            counter = counter - 1
+        } 
     }
     win();
 };
@@ -53,7 +49,7 @@ function pressButton(el) {
 function resetGame () {
     array.forEach((el) => {
         el.classList.remove('x')
-        el.classList.remove('circle')
+        el.classList.remove('o')
     })
 
     x.classList.add('none');
@@ -61,40 +57,30 @@ function resetGame () {
 }
 
 function checkingForClasses (el){
-    if (el.classList.contains('x') || el.classList.contains('circle')){
-    } else {
+    if (!el.classList.contains('x') || !el.classList.contains('o')){
         if (x.classList.contains('none') &&  o.classList.contains('none')){
             pressButton(el);   
          }    
     }
 }
 
+function checkingForWin (el, el2) {
+    if (nine.classList.contains(el) && eight.classList.contains(el) && seven.classList.contains(el) ||
+    six.classList.contains(el) && five.classList.contains(el) && four.classList.contains(el) ||
+    three.classList.contains(el) && two.classList.contains(el) && one.classList.contains(el) ||
+    one.classList.contains(el) && five.classList.contains(el) && nine.classList.contains(el) ||
+    three.classList.contains(el) && five.classList.contains(el) && seven.classList.contains(el) ||
+    one.classList.contains(el) && four.classList.contains(el) && seven.classList.contains(el) ||
+    two.classList.contains(el) && five.classList.contains(el) && eight.classList.contains(el) ||
+    three.classList.contains(el) && six.classList.contains(el) && nine.classList.contains(el) ) {
+        
+        if (o.classList.contains('none') && x.classList.contains('none')){
+            return el2.classList.remove('none');
+        } 
+    }
+}
+
 function win () {
-    if (nine.classList.contains('x') && eight.classList.contains('x') && seven.classList.contains('x') ||
-        six.classList.contains('x') && five.classList.contains('x') && four.classList.contains('x') ||
-        three.classList.contains('x') && two.classList.contains('x') && one.classList.contains('x') ||
-        one.classList.contains('x') && five.classList.contains('x') && nine.classList.contains('x') ||
-        three.classList.contains('x') && five.classList.contains('x') && seven.classList.contains('x') ||
-        one.classList.contains('x') && four.classList.contains('x') && seven.classList.contains('x') ||
-        two.classList.contains('x') && five.classList.contains('x') && eight.classList.contains('x') ||
-        three.classList.contains('x') && six.classList.contains('x') && nine.classList.contains('x') ) {
-
-        if (o.classList.contains('none') && x.classList.contains('none')){
-            return x.classList.remove('none');
-        } 
-    }
-
-    if (nine.classList.contains('circle') && eight.classList.contains('circle') && seven.classList.contains('circle') ||
-        six.classList.contains('circle') && five.classList.contains('circle') && four.classList.contains('circle') ||
-        three.classList.contains('circle') && two.classList.contains('circle') && one.classList.contains('circle') ||
-        one.classList.contains('circle') && five.classList.contains('circle') && nine.classList.contains('circle') ||
-        three.classList.contains('circle') && five.classList.contains('circle') && seven.classList.contains('circle') ||
-        one.classList.contains('circle') && four.classList.contains('circle') && seven.classList.contains('circle') ||
-        two.classList.contains('circle') && five.classList.contains('circle') && eight.classList.contains('circle') ||
-        three.classList.contains('circle') && six.classList.contains('circle') && nine.classList.contains('circle') ) {
-
-        if (o.classList.contains('none') && x.classList.contains('none')){
-            return o.classList.remove('none');
-        } 
-    }
+    checkingForWin('x', x);
+    checkingForWin('o', o);
 }
