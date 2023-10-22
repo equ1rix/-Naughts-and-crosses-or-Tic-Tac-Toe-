@@ -10,7 +10,9 @@ const nine = document.getElementById('9');
 const x = document.getElementById('x');
 const o = document.getElementById('o');
 const reset = document.getElementById('10');
+
 let counter = 1;
+
 const array = [
     one, two, three, four, five, six, seven, eight, nine
 ];
@@ -27,10 +29,9 @@ reset.addEventListener('click', () => {
 
 
 
-// function
+// function 123
 
 function pressButton(el) {
-    
     if (counter === 1) {
         if (el.classList.contains('circle') || el.classList.contains('x')) {
 
@@ -50,10 +51,10 @@ function pressButton(el) {
 };
 
 function resetGame () {
-    array.forEach((el) => 
-    el.classList.remove('x'))
-    array.forEach((el) => 
-    el.classList.remove('circle'))
+    array.forEach((el) => {
+        el.classList.remove('x')
+        el.classList.remove('circle')
+    })
 
     x.classList.add('none');
     o.classList.add('none');
